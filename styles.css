@@ -112,29 +112,37 @@ header > * {
     margin: 0 auto;
     text-align: center;
     margin-bottom: 2rem;
-    background: white;
+    background: transparent;
     padding: 2rem;
     border-radius: 0.5rem;
+    border: 2px solid white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
-    opacity: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     animation: fadeInDown 0.8s ease-out;
-    color: var(--text-color);
+    color: white;
     transform: translateY(-40px);
+    text-align: center;
+    width: 100%;
 }
 
 header .title {
     font-size: 1.25rem;
     opacity: 0.9;
     animation: fadeInUp 0.8s ease-out 0.2s both;
-    color: var(--text-color);
+    color: white;
     transform: translateY(-40px);
+    text-align: center;
+    width: 100%;
 }
 
 /* Navigation Styles */
