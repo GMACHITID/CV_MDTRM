@@ -40,29 +40,8 @@ The following environment variables need to be configured in Cloudflare Pages:
 2. **RECIPIENT_EMAIL**
    - The email address where contact form submissions should be sent
    - This is kept private and never exposed to the client
-   - Example: `your-email@example.com`
+   - Example: `your-email@example.
 
-### Setting Environment Variables in Cloudflare Pages
-
-1. Go to your Cloudflare Pages project dashboard
-2. Navigate to **Settings** → **Environment Variables**
-3. Add each variable:
-   - **Variable name**: `GEMINI_API_KEY`, `RECIPIENT_EMAIL`, or `RESEND_API_KEY`
-   - **Value**: Your actual key/email
-   - **Environment**: Production (and Preview if desired)
-4. Save and redeploy if needed
-
-### Local Development
-
-For local development with Wrangler, create a `.dev.vars` file:
-
-```
-GEMINI_API_KEY=your-gemini-api-key-here
-RECIPIENT_EMAIL=your-email@example.com
-RESEND_API_KEY=your-resend-api-key-here
-```
-
-**Note**: The `.dev.vars` file is already in `.gitignore` and will not be committed.
 
 ## Contact Form
 
