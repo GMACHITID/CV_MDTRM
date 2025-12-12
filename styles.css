@@ -111,7 +111,7 @@ header > * {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.5rem;
     background: transparent;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -128,7 +128,7 @@ header h1 {
     margin-bottom: 0.5rem;
     animation: fadeInDown 0.8s ease-out;
     color: white;
-    transform: translateY(-40px);
+    transform: translateY(-50px);
     text-align: center;
     width: 100%;
 }
@@ -138,9 +138,10 @@ header .title {
     opacity: 0.9;
     animation: fadeInUp 0.8s ease-out 0.2s both;
     color: white;
-    transform: translateY(-60px);
+    transform: translateY(0px);
     text-align: center;
     width: 100%;
+    margin-bottom: 0.5rem;
 }
 
 /* Navigation Styles */
