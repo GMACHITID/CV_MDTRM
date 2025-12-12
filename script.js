@@ -127,23 +127,63 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Form submission
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         if (validateForm()) {
-            // Show success message (backend integration to be added later)
-            formStatus.textContent = 'Thank you for your message! I will get back to you soon.';
-            formStatus.className = 'form-status success';
-            
-            // Reset form
-            contactForm.reset();
-            clearErrors();
+            // Disable submit button during submission
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
 
-            // Hide status message after 5 seconds
-            setTimeout(() => {
-                formStatus.className = 'form-status';
-                formStatus.textContent = '';
-            }, 5000);
+            try {
+                // Send form data to Cloudflare Worker function
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: nameInput.value.trim(),
+                        email: emailInput.value.trim(),
+                        message: messageInput.value.trim()
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to send message');
+                }
+
+                // Show success message
+                formStatus.textContent = data.message || 'Thank you for your message! I will get back to you soon.';
+                formStatus.className = 'form-status success';
+                
+                // Reset form
+                contactForm.reset();
+                clearErrors();
+
+                // Hide status message after 5 seconds
+                setTimeout(() => {
+                    formStatus.className = 'form-status';
+                    formStatus.textContent = '';
+                }, 5000);
+            } catch (error) {
+                console.error('Form submission error:', error);
+                formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later.';
+                formStatus.className = 'form-status error';
+                
+                setTimeout(() => {
+                    formStatus.className = 'form-status';
+                    formStatus.textContent = '';
+                }, 5000);
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
         }
     });
 

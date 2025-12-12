@@ -21,10 +21,60 @@ Midterm/
 ├── script.js           # JavaScript for interactions and API integration
 ├── functions/
 │   └── api/
-│       └── chat.js     # Cloudflare Worker function for secure API proxying
+│       ├── chat.js     # Cloudflare Worker function for Gemini API proxying
+│       └── contact.js # Cloudflare Worker function for contact form submissions
 ├── .gitignore         # Git ignore rules
 └── README.md          # This file
 ```
+
+## Environment Variables
+
+The following environment variables need to be configured in Cloudflare Pages:
+
+### Required Variables
+
+1. **GEMINI_API_KEY**
+   - Your Google Gemini API key for chat functionality
+   - Get it from [Google AI Studio](https://makersuite.google.com/app/apikey)
+
+2. **RECIPIENT_EMAIL**
+   - The email address where contact form submissions should be sent
+   - This is kept private and never exposed to the client
+   - Example: `your-email@example.com`
+
+### Setting Environment Variables in Cloudflare Pages
+
+1. Go to your Cloudflare Pages project dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add each variable:
+   - **Variable name**: `GEMINI_API_KEY`, `RECIPIENT_EMAIL`, or `RESEND_API_KEY`
+   - **Value**: Your actual key/email
+   - **Environment**: Production (and Preview if desired)
+4. Save and redeploy if needed
+
+### Local Development
+
+For local development with Wrangler, create a `.dev.vars` file:
+
+```
+GEMINI_API_KEY=your-gemini-api-key-here
+RECIPIENT_EMAIL=your-email@example.com
+RESEND_API_KEY=your-resend-api-key-here
+```
+
+**Note**: The `.dev.vars` file is already in `.gitignore` and will not be committed.
+
+## Contact Form
+
+The contact form sends submissions to the `/api/contact` endpoint, which:
+- Validates the form data
+- Uses the `RECIPIENT_EMAIL` environment variable (kept private)
+- Sends emails via Resend API using `RESEND_API_KEY`
+
+**Email Sending**: The form is fully integrated with Resend and will send emails to your recipient address. The sender email is currently set to `onboarding@resend.dev` (Resend's default). To use your own domain:
+
+1. Verify your domain in Resend Dashboard
+2. Update the `from` field in `functions/api/contact.js` to use your verified domain (e.g., `noreply@yourdomain.com`)
 
 ## Support
 

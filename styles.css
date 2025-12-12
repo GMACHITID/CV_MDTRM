@@ -240,6 +240,13 @@ main {
     transform: translateY(0);
 }
 
+.submit-btn:disabled {
+    background-color: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.6;
+}
+
 .form-status {
     margin-top: 1rem;
     padding: 0.75rem;
