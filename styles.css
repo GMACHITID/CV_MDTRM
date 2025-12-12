@@ -1,0 +1,665 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --bg-color: #ffffff;
+    --bg-light: #f9fafb;
+    --border-color: #e5e7eb;
+    --accent-color: #10b981;
+    --error-color: #ef4444;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem 1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+header .title {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Navigation Styles */
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Main Content Layout - CSS Grid */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+/* Section Styles */
+.section {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Experience and Education Items - Flexbox */
+.experience-item,
+.education-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-light);
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover,
+.education-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.experience-header,
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-header h3,
+.education-header h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    flex: 1;
+}
+
+.date {
+    color: var(--text-light);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.company,
+.institution {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* Contact Form - Flexbox */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.25rem;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-status {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.form-status.success {
+    background-color: #d1fae5;
+    color: #065f46;
+    display: block;
+}
+
+.form-status.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-light);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Chat Widget */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chat-toggle {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.chat-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--secondary-color);
+}
+
+.chat-toggle span {
+    font-size: 1.5rem;
+}
+
+.chat-container {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-lg);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-container.active {
+    display: flex;
+    animation: slideUp 0.3s ease-out;
+}
+
+.chat-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.chat-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    max-width: 80%;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.message.user {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.message.bot {
+    background-color: white;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    align-self: flex-start;
+}
+
+.message.loading {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.chat-input-container {
+    padding: 1rem;
+    background-color: white;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+}
+
+.chat-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.chat-send {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.chat-send:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .nav-menu {
+        gap: 0.75rem;
+    }
+
+    .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .experience-header,
+    .education-header {
+        flex-direction: column;
+    }
+
+    .date {
+        align-self: flex-start;
+    }
+
+    .chat-container {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 120px);
+        bottom: 80px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    .experience-item,
+    .education-item {
+        padding: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    /* Hide interactive elements */
+    nav,
+    .chat-widget,
+    .contact-form,
+    footer .social-links {
+        display: none !important;
+    }
+
+    /* Page setup */
+    @page {
+        margin: 1.5cm;
+    }
+
+    body {
+        background: white;
+        color: black;
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    /* Header for print */
+    header {
+        background: white !important;
+        color: black !important;
+        padding: 1rem 0;
+        border-bottom: 2px solid black;
+        box-shadow: none;
+    }
+
+    header h1 {
+        color: black;
+        font-size: 24pt;
+    }
+
+    header .title {
+        color: #333;
+        font-size: 14pt;
+    }
+
+    /* Main content */
+    main {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .section {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: none;
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .section h2 {
+        color: black;
+        border-bottom: 2px solid black;
+        font-size: 18pt;
+        page-break-after: avoid;
+    }
+
+    /* Experience and Education items */
+    .experience-item,
+    .education-item {
+        background: white;
+        border-left: 2px solid black;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+    }
+
+    .experience-header h3,
+    .education-header h3 {
+        font-size: 14pt;
+        color: black;
+    }
+
+    .company,
+    .institution {
+        color: black;
+        font-size: 12pt;
+    }
+
+    .date {
+        color: #333;
+    }
+
+    .description {
+        color: #333;
+    }
+
+    /* Footer */
+    footer {
+        background: white;
+        border-top: 1px solid black;
+        padding: 1rem 0;
+        margin-top: 2rem;
+        page-break-inside: avoid;
+    }
+
+    footer p {
+        color: black;
+        font-size: 10pt;
+    }
+
+    /* Links */
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+
+    /* Avoid page breaks */
+    .section:last-child {
+        page-break-after: auto;
+    }
+}
+
