@@ -321,5 +321,49 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         addMessage('Hello! I\'m here to help answer questions about this CV. How can I assist you?', 'bot');
     }, 500);
+
+    // Mobile tap trace effect
+    function createTapTrace(x, y) {
+        const trace = document.createElement('div');
+        trace.style.position = 'fixed';
+        trace.style.left = `${x}px`;
+        trace.style.top = `${y}px`;
+        trace.style.width = '4px';
+        trace.style.height = '4px';
+        trace.style.borderRadius = '50%';
+        trace.style.backgroundColor = 'rgba(220, 38, 38, 0.8)';
+        trace.style.pointerEvents = 'none';
+        trace.style.zIndex = '9999';
+        trace.style.transform = 'translate(-50%, -50%)';
+        trace.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        document.body.appendChild(trace);
+        
+        // Animate and remove
+        requestAnimationFrame(() => {
+            trace.style.opacity = '0';
+            trace.style.transform = 'translate(-50%, -50%) scale(2)';
+        });
+        
+        setTimeout(() => {
+            if (trace.parentNode) {
+                trace.parentNode.removeChild(trace);
+            }
+        }, 500);
+    }
+
+    // Detect mobile devices
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               (window.innerWidth <= 768 && 'ontouchstart' in window);
+    }
+
+    // Add touch event listeners for mobile
+    if (isMobileDevice()) {
+        document.addEventListener('touchstart', function(e) {
+            const touch = e.touches[0];
+            createTapTrace(touch.clientX, touch.clientY);
+        }, { passive: true });
+    }
 });
 
