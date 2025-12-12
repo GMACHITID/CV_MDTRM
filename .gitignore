@@ -5,6 +5,9 @@
 *.key
 config.js
 
+README-for-me.md
+
+
 # API keys and sensitive data
 secrets.json
 api-keys.json
