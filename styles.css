@@ -114,8 +114,6 @@ header > * {
     margin-bottom: 2rem;
     background: transparent;
     padding: 2rem;
-    border-radius: 0.5rem;
-    border: 2px solid white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
@@ -140,7 +138,7 @@ header .title {
     opacity: 0.9;
     animation: fadeInUp 0.8s ease-out 0.2s both;
     color: white;
-    transform: translateY(-40px);
+    transform: translateY(-60px);
     text-align: center;
     width: 100%;
 }
