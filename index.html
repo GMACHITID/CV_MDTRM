@@ -9,40 +9,44 @@
 </head>
 <body>
     <header>
+        <div class="language-switcher">
+            <button id="lang-en" class="lang-btn active" data-lang="en">EN</button>
+            <button id="lang-ka" class="lang-btn" data-lang="ka">KA</button>
+        </div>
         <div class="header-content">
-            <h1 id="name">Giorgi Machitidze</h1>
-            <p class="title">Business Development Manager</p>
+            <h1 id="name" data-i18n="name">Giorgi Machitidze</h1>
+            <p class="title" data-i18n="title">Business Development Manager</p>
         </div>
         <nav>
             <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                <li><a href="#education" class="nav-link" data-i18n="nav.education">Education</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>Welcome to my professional portfolio. I am a dedicated professional with experience in Business Development. This CV showcases my work experience, education, and skills.</p>
-            <p>Feel free to explore my background and reach out if you'd like to connect or learn more about my work.</p>
+            <h2 data-i18n="about.title">About Me</h2>
+            <p data-i18n="about.para1">Welcome to my professional portfolio. I am a dedicated professional with experience in Business Development. This CV showcases my work experience, education, and skills.</p>
+            <p data-i18n="about.para2">Feel free to explore my background and reach out if you'd like to connect or learn more about my work.</p>
         </section>
 
         <section id="experience" class="section">
-            <h2>Work Experience</h2>
+            <h2 data-i18n="experience.title">Work Experience</h2>
             
             <article class="experience-item">
                 <div class="experience-header">
-                    <h3>Business Development Manager</h3>
+                    <h3 data-i18n="experience.exp1.title">Business Development Manager</h3>
                     <span class="date">April 2025 - Present</span>
                 </div>
-                <p class="company">FINA LLC</p>
-                <p class="description">Drove end-to-end business growth initiatives by leading client outreach campaigns (cold/warm calling) and optimizing conversion strategies through AI-driven automation.
+                <p class="company" data-i18n="experience.exp1.company">FINA LLC</p>
+                <p class="description" data-i18n="experience.exp1.description">Drove end-to-end business growth initiatives by leading client outreach campaigns (cold/warm calling) and optimizing conversion strategies through AI-driven automation.
                     Acted as the key liaison between marketing, sales, and development teams, ensuring strategic alignment and timely project delivery across multiple verticals.
-                    Managed the company’s eCommerce division, overseeing Shopify-based solutions and directly participating in custom app development (Pay-in-Installments system for Georgia, FinSync accounting integration) and CRM pipeline structuring.
-                    Partnered with the AI research team to develop FinAssist, an intelligent chatbot tailored for banks and financial professionals; contributed to Microsoft’s AI Acceleration Program in product testing, pitching, and consultation.
+                    Managed the company's eCommerce division, overseeing Shopify-based solutions and directly participating in custom app development (Pay-in-Installments system for Georgia, FinSync accounting integration) and CRM pipeline structuring.
+                    Partnered with the AI research team to develop FinAssist, an intelligent chatbot tailored for banks and financial professionals; contributed to Microsoft's AI Acceleration Program in product testing, pitching, and consultation.
                     Engineered automated lead funnels and workflows using Zapier and n8n, integrating custom SMS webhook systems to enhance lead nurturing and conversion rates.
                     Crafted an image conversion pipeline that processes any picture format and outputs WebP images with transparent backgrounds, centered product focus, and 100% preserved quality, optimized for eCommerce storefronts.
                     Designed and implemented an Excel-to-SMS automation tool using Visual Basic and KDEConnect, streamlining mass communication processes for marketing operations.
@@ -51,12 +55,12 @@
 
             <article class="experience-item">
                 <div class="experience-header">
-                    <h3>Customer Operations Expert II (Hybrid)
+                    <h3 data-i18n="experience.exp2.title">Customer Operations Expert II (Hybrid)
                     </h3>
                     <span class="date">June 2021 - July 2025</span>
                 </div>
-                <p class="company">Teleperformance Georgia</p>
-                <p class="description">Processing Outbound/Inbound cases in English and German over spoken and written communication channels, achieving indispensable communication skills in the German language (C1 tier).
+                <p class="company" data-i18n="experience.exp2.company">Teleperformance Georgia</p>
+                <p class="description" data-i18n="experience.exp2.description">Processing Outbound/Inbound cases in English and German over spoken and written communication channels, achieving indispensable communication skills in the German language (C1 tier).
                     Volunteered in training newcomers in my specialty, as well as the IT-systems adaptability during overtime hours.
                     Established strong connections and various communication abilities through working in 4 departments and 3 languages.
                     Solidified time management skills by having worked with tight and flexible scheduling.</p>
@@ -64,11 +68,11 @@
 
             <article class="experience-item">
                 <div class="experience-header">
-                    <h3>Data analysis/Data Entry</h3>
+                    <h3 data-i18n="experience.exp3.title">Data analysis/Data Entry</h3>
                     <span class="date">2021 - 2025</span>
                 </div>
-                <p class="company">S/P Giorgi Machitidze</p>
-                <p class="description">Spearhead data processing & Accounting.  
+                <p class="company" data-i18n="experience.exp3.company">S/P Giorgi Machitidze</p>
+                <p class="description" data-i18n="experience.exp3.description">Spearhead data processing & Accounting.  
                     Supervise customer relations over various communication channels, including face-to-face meetings.  
                     Assist with creating financial reports using Python modules, decreasing financial discrepancies by exactly 50%.
                     Technology used:
@@ -79,60 +83,60 @@
         </section>
 
         <section id="education" class="section">
-            <h2>Education</h2>
+            <h2 data-i18n="education.title">Education</h2>
             
             <article class="education-item">
                 <div class="education-header">
-                    <h3>Data Engineering Trainee</h3>
+                    <h3 data-i18n="education.edu1.title">Data Engineering Trainee</h3>
                     <span class="date">2024 - Present</span>
                 </div>
-                <p class="institution">EPAM</p>
+                <p class="institution" data-i18n="education.edu1.institution">EPAM</p>
             </article>
 
             <article class="education-item">
                 <div class="education-header">
-                    <h3>Bachelor of Computer Science (English, External Mobility)
+                    <h3 data-i18n="education.edu2.title">Bachelor of Computer Science (English, External Mobility)
                     </h3>
                     <span class="date">2024-2026(Expected)</span>
                 </div>
-                <p class="institution">Georgian Technical University</p>
-                <p class="description">Currently enrolled after external mobility as a VII semester student with an ongoing 92% average grade.</p>
+                <p class="institution" data-i18n="education.edu2.institution">Georgian Technical University</p>
+                <p class="description" data-i18n="education.edu2.description">Currently enrolled after external mobility as a VII semester student with an ongoing 92% average grade.</p>
             </article>
 
             <article class="education-item">
                 <div class="education-header">
-                    <h3>Bachelor of Computer Science (English)
+                    <h3 data-i18n="education.edu3.title">Bachelor of Computer Science (English)
                     </h3>
                     <span class="date">2022-2024</span>
                 </div>
-                <p class="institution">Caucasus University</p>
-                <p class="description">Was invited to a cultural visit to the European Parliament in Strasbourg upon achieving a high score in “History as a Subject”. 
-                    Took part in different competitions through university partnerships, including “The Proggy Buggy international”.</p>
+                <p class="institution" data-i18n="education.edu3.institution">Caucasus University</p>
+                <p class="description" data-i18n="education.edu3.description">Was invited to a cultural visit to the European Parliament in Strasbourg upon achieving a high score in "History as a Subject". 
+                    Took part in different competitions through university partnerships, including "The Proggy Buggy international".</p>
             </article>
         </section>
 
         <section id="contact" class="section">
-            <h2>Get in Touch</h2>
+            <h2 data-i18n="contact.title">Get in Touch</h2>
             <form id="contact-form" class="contact-form">
                 <div class="form-group">
-                    <label for="name-input">Name</label>
+                    <label for="name-input" data-i18n="contact.name">Name</label>
                     <input type="text" id="name-input" name="name" required>
                     <span class="error-message" id="name-error"></span>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email-input">Email Address</label>
+                    <label for="email-input" data-i18n="contact.email">Email Address</label>
                     <input type="email" id="email-input" name="email" required>
                     <span class="error-message" id="email-error"></span>
                 </div>
                 
                 <div class="form-group">
-                    <label for="message-input">Message</label>
+                    <label for="message-input" data-i18n="contact.message">Message</label>
                     <textarea id="message-input" name="message" rows="5" required></textarea>
                     <span class="error-message" id="message-error"></span>
                 </div>
                 
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn" data-i18n="contact.submit">Send Message</button>
                 <div id="form-status" class="form-status"></div>
             </form>
         </section>

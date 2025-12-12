@@ -1,5 +1,163 @@
+// Set header height to match image dimensions
+function setHeaderHeight() {
+    const header = document.querySelector('header');
+    const img = new Image();
+    img.src = 'bckgr.jpeg';
+    img.onload = function() {
+        // Calculate height based on image aspect ratio and container width
+        const containerWidth = header.offsetWidth || window.innerWidth;
+        const aspectRatio = this.naturalHeight / this.naturalWidth;
+        const calculatedHeight = containerWidth * aspectRatio;
+        // Add padding to account for content
+        header.style.height = `${calculatedHeight}px`;
+        header.style.minHeight = `${calculatedHeight}px`;
+    };
+    img.onerror = function() {
+        // Fallback if image fails to load
+        header.style.minHeight = '400px';
+    };
+}
+
+// Translations object
+// To add Georgian translations, replace the placeholder text in the 'ka' object below
+// All keys that exist in 'en' should also exist in 'ka' for complete translation
+const translations = {
+    en: {
+        name: "Giorgi Machitidze",
+        title: "Business Development Manager",
+        "nav.about": "About",
+        "nav.experience": "Experience",
+        "nav.education": "Education",
+        "nav.contact": "Contact",
+        "about.title": "About Me",
+        "about.para1": "Welcome to my professional portfolio. I am a dedicated professional with experience in Business Development. This CV showcases my work experience, education, and skills.",
+        "about.para2": "Feel free to explore my background and reach out if you'd like to connect or learn more about my work.",
+        "experience.title": "Work Experience",
+        "experience.exp1.title": "Business Development Manager",
+        "experience.exp1.company": "FINA LLC",
+        "experience.exp1.description": "Drove end-to-end business growth initiatives by leading client outreach campaigns (cold/warm calling) and optimizing conversion strategies through AI-driven automation. Acted as the key liaison between marketing, sales, and development teams, ensuring strategic alignment and timely project delivery across multiple verticals. Managed the company's eCommerce division, overseeing Shopify-based solutions and directly participating in custom app development (Pay-in-Installments system for Georgia, FinSync accounting integration) and CRM pipeline structuring. Partnered with the AI research team to develop FinAssist, an intelligent chatbot tailored for banks and financial professionals; contributed to Microsoft's AI Acceleration Program in product testing, pitching, and consultation. Engineered automated lead funnels and workflows using Zapier and n8n, integrating custom SMS webhook systems to enhance lead nurturing and conversion rates. Crafted an image conversion pipeline that processes any picture format and outputs WebP images with transparent backgrounds, centered product focus, and 100% preserved quality, optimized for eCommerce storefronts. Designed and implemented an Excel-to-SMS automation tool using Visual Basic and KDEConnect, streamlining mass communication processes for marketing operations. Attended the eCommerce Day 2025 held in Georgia as a part of my networking program.",
+        "experience.exp2.title": "Customer Operations Expert II (Hybrid)",
+        "experience.exp2.company": "Teleperformance Georgia",
+        "experience.exp2.description": "Processing Outbound/Inbound cases in English and German over spoken and written communication channels, achieving indispensable communication skills in the German language (C1 tier). Volunteered in training newcomers in my specialty, as well as the IT-systems adaptability during overtime hours. Established strong connections and various communication abilities through working in 4 departments and 3 languages. Solidified time management skills by having worked with tight and flexible scheduling.",
+        "experience.exp3.title": "Data analysis/Data Entry",
+        "experience.exp3.company": "S/P Giorgi Machitidze",
+        "experience.exp3.description": "Spearhead data processing & Accounting. Supervise customer relations over various communication channels, including face-to-face meetings. Assist with creating financial reports using Python modules, decreasing financial discrepancies by exactly 50%. Technology used: NumPy Pandas Matplotlib",
+        "education.title": "Education",
+        "education.edu1.title": "Data Engineering Trainee",
+        "education.edu1.institution": "EPAM",
+        "education.edu2.title": "Bachelor of Computer Science (English, External Mobility)",
+        "education.edu2.institution": "Georgian Technical University",
+        "education.edu2.description": "Currently enrolled after external mobility as a VII semester student with an ongoing 92% average grade.",
+        "education.edu3.title": "Bachelor of Computer Science (English)",
+        "education.edu3.institution": "Caucasus University",
+        "education.edu3.description": "Was invited to a cultural visit to the European Parliament in Strasbourg upon achieving a high score in \"History as a Subject\". Took part in different competitions through university partnerships, including \"The Proggy Buggy international\".",
+        "contact.title": "Get in Touch",
+        "contact.name": "Name",
+        "contact.email": "Email Address",
+        "contact.message": "Message",
+        "contact.submit": "Send Message"
+    },
+    ka: {
+        // Georgian translations - Replace placeholders with actual Georgian text
+        name: "გიორგი მაჩიტიძე",
+        title: "ბიზნეს განვითარების მენეჯერი",
+        "nav.about": "ჩემ შესახებ",
+        "nav.experience": "გამოცდილება",
+        "nav.education": "განათლება",
+        "nav.contact": "კონტაქტი",
+        "about.title": "ჩემ შესახებ",
+        "about.para1": "ბიზნეს დეველოპერი ტექნოლოგიების, მონაცემებისა და ბიზნეს სტრატეგიის შეთავსების გამოცდილებით.",
+        "about.para2": " წარმატებული eCommerce და AI ინიციატივების მართვაში, მათ შორის Shopify აპლიკაციების შემუშავებაში, CRM ოპტიმიზაციასა და ავტომატიზაციის სამუშაო პროცესების დანერგვაში. ორიენტირებული ვარ მონაცემებზე დაფუძნებულ გადაწყვეტილებებსა და ახალი ტექნოლოგიების ინტეგრაციაზე მასშტაბური სისტემების შესაქმნელად. ამჟამად, FINA2.NET-ში განვითარების პროექტების პარალელურად, ვიღრმავებ ცოდნას მონაცემთა ინჟინერიაში.",
+        "experience.title": "სამუშაო გამოცდილება",
+        "experience.exp1.title": "ბიზნეს დეველოპმენტ მენეჯერი",
+        "experience.exp1.company": "FINA LLC",
+        "experience.exp1.description": "ბიზნესის ზრდის სრული ციკლის ინიციატივების მართვა კლიენტებთან აქტიური დაკავშირების (ცივი/თბილი ზარები) გზით და კონვერსიის სტრატეგიების ოპტიმიზაცია AI-ზე დაფუძნებული ავტომატიზაციით.\
+ძირითადი დამაკავშირებელი პირის ფუნქციის შესრულება მარკეტინგის, გაყიდვებისა და დეველოპმენტის გუნდებს შორის, სტრატეგიული თანხვედრისა და მრავალ სეგმენტში პროექტების დროულად მიწოდების უზრუნველყოფა.\
+კომპანიის ელექტრონული კომერციის (eCommerce) დივიზიონის მართვა, მათ შორის Shopify-ზე დაფუძნებული გადაწყვეტილებების ზედამხედველობა, მორგებული აპლიკაციების განვითარება („ნაწილ-ნაწილ გადახდის“ სისტემა საქართველოსთვის, FinSync-ის ბუღალტრული ინტეგრაცია) და CRM მილსადენის სტრუქტურირება.\
+AI კვლევით გუნდთან პარტნიორობა FinAssist-ის შესაქმნელად — ბანკებისა და ფინანსური პროფესიონალებისთვის შექმნილი ინტელექტუალური ჩატბოტი; Microsoft-ის AI Acceleration Program-ში წვლილის შეტანა პროდუქტის ტესტირების, პრეზენტაციის სტრუქტურირებისა და კონსულტაციის მიმართულებით.\
+ავტომატიზირებული ლიდების ფილტრებისა და სამუშაო პროცესების შექმნა Zapier-ისა და n8n-ის გამოყენებით, მორგებული SMS ვებჰუკ სისტემების ინტეგრირებით ლიდების მოზიდვისა და კონვერსიის მაჩვენებლების ასამაღლებლად.\
+Excel-დან SMS-ზე ავტომატიზაციის ხელსაწყოს შემუშავება და დანერგვა Visual Basic-ისა და KDEConnect-ის მეშვეობით, მარკეტინგული ოპერაციებისთვის მასობრივი კომუნიკაციის პროცესების გასამარტივებლად.\
+გამოსახულების კონვერტაციის უნიკალური პაიპლაინის აგება, რომელიც ამუშავებს ნებისმიერ ფოტო ფორმატს და აწარმოებს WebP სურათებს გამჭვირვალე ფონით, ცენტრში მოქცეული პროდუქტით და 100% ხარისხის შენარჩუნებით, eCommerce-ის მაღაზიებისთვის ოპტიმიზირებული სახით.\
+კომპანიის წარმოდგენა eCommerce Day 2025-ზე, სტრატეგიული პარტნიორობის გაფართოება და რეგიონალურ ციფრული ტრანსფორმაციის ლიდერებთან ნეთვორქინგი.",
+        "experience.exp2.title": "კლიენტთა ოპერაციების ექსპერტი II (ჰიბრიდული)",
+        "experience.exp2.company": "Teleperformance Georgia",
+        "experience.exp2.description": "ვამუშავებ ელ.ფოსტისა და ზარების Inbound/Outbound ქეისებს ინგლისურად და გერმანულად, რისი მეშვეობითაც მივაღწიე გერმანული ენის ცოდნის უმაღლეს დონეს.\
+როგორც მოხალისე, ვმონაწილეობ ახალბედა თანამშრომლების დატრენინგებაში როგორც ჩემს საქმეში, ისევე IT- სისტემების გამართვასა და ტესტირებაში სწრაფად და ეფექტურად, ზეგანაკვეთურად.\
+დავამყარე ძლიერი კავშირები და კომუნიკაციის უნარები მულტიკულტურულ საზოგადოებაში 4 ენასა და 3 დეპარტამენტში მუშაობის საფუძველზე.\
+გავიმყარე დროისა და განრიგების მენეჯმენტის უნარები.",
+        "experience.exp3.title": "მონაცემთა შეყვანა/დამუშავება",
+        "experience.exp3.company": "ი/მ გიორგი მაჩიტიძე",
+        "experience.exp3.description": "ვაორგანიზებ მონაცემთა დამუშავებასა და დამკვეთებთან ურთიერთობას.\
+ჩამოვაყალიბე ძლიერი კავშირგაბმულობა დამკვეთებთან მრავალი საკომუნიკაციო საშუალებით.\
+ვეხმარები ფინანსური რეპორტების შექმნასა და ვიზუალიზაციაში ოფისისა და Python-ის მოდულების მეშვეობით, რითაც\
+       მივაღწიე მონაცემთა სიზუსტის გაუმჯობესებას დაახლოებით 50%-ით.",
+        "education.title": "განათლება",
+        "education.edu1.title": "მონაცემთა ინჟინერიის შესავალი",
+        "education.edu1.institution": "EPAM",
+        "education.edu2.title": "კომპიუტერული მეცნიერების ბაკალავრი (ინგლისურენოვანი, გარე მობილობა)",
+        "education.edu2.institution": "საქართველოს ტექნიკური უნივერსიტეტი",
+        "education.edu2.description": "ამჟამად გარე მობილობის შემდეგ, საქართველოს ტექნიკური უნივერსიტეტის",
+        "education.edu3.title": "კომპიუტერული მეცნიერების ბაკალავრი (ინგლისურენოვანი)",
+        "education.edu3.institution": "კავკასიის უნივერსიტეტი",
+        "education.edu3.description": "მოწვეული ვიყავი სტრასბურგში კულტურულ ვიზიტზე “ისტორია, როგორც საგნის” მაღალი შედეგების საფუძველზე.\
+ვიღებდი სხვადასხვა შეჯიბრებებში მონაწილეობას, როგორიცაა მკლავჭიდი და “Proggy Buggy International”",
+        "contact.title": "დაკავშირება",
+        "contact.name": "სახელი",
+        "contact.email": "ელფოსტა",
+        "contact.message": "შეტყობინება",
+        "contact.submit": "გაგზავნა"
+    }
+};
+
+// Language switching functionality
+let currentLang = localStorage.getItem('language') || 'en';
+
+function switchLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('language', lang);
+    
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+    
+    // Update language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+}
+
 // Smooth Scrolling Navigation
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize language
+    switchLanguage(currentLang);
+    
+    // Language switcher buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            switchLanguage(lang);
+        });
+    });
+    
+    // Set header height to match image
+    setHeaderHeight();
+    
+    // Recalculate on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(setHeaderHeight, 100);
+    });
     // Smooth scroll for navigation links
     const navLinks = document.querySelectorAll('.nav-link');
     
