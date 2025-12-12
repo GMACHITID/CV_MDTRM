@@ -60,7 +60,7 @@ const translations = {
     ka: {
         // Georgian translations - Replace placeholders with actual Georgian text
         name: "გიორგი მაჩიტიძე",
-        title: "ბიზნეს განვითარების მენეჯერი",
+        title: "ბიზნეს დეველოპმენტ მენეჯერი",
         "nav.about": "ჩემ შესახებ",
         "nav.experience": "გამოცდილება",
         "nav.education": "განათლება",
