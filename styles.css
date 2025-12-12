@@ -110,7 +110,7 @@ header > * {
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     margin-bottom: 0.125rem;
     background: transparent;
     padding: 2rem;
@@ -119,17 +119,17 @@ header > * {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
 header h1 {
     font-size: 5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     animation: fadeInDown 0.8s ease-out;
     color: white;
     transform: translateY(-50px);
-    text-align: center;
+    text-align: left;
     width: 100%;
 }
 
@@ -138,10 +138,12 @@ header .title {
     opacity: 0.9;
     animation: fadeInUp 0.8s ease-out 0.2s both;
     color: white;
-    transform: translateY(20px);
-    text-align: center;
+    transform: translateY(-30px);
+    text-align: left;
     width: 100%;
     margin-bottom: 0;
+    font-style: italic;
+    margin-top: -0.5rem;
 }
 
 /* Navigation Styles */
