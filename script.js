@@ -486,8 +486,8 @@ document.addEventListener('DOMContentLoaded', function() {
         trace.style.position = 'fixed';
         trace.style.left = `${x}px`;
         trace.style.top = `${y}px`;
-        trace.style.width = '4px';
-        trace.style.height = '4px';
+        trace.style.width = '14px';
+        trace.style.height = '14px';
         trace.style.borderRadius = '50%';
         trace.style.backgroundColor = 'rgba(220, 38, 38, 0.8)';
         trace.style.pointerEvents = 'none';
